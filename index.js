@@ -3,8 +3,8 @@ const   http = require('http'), // Provides HTTP server
         express = require('express'), //Allows this app to respond HTTP requests, defines the routing and renders back to the required content
         fs = require('fs'), //Allows to work with the file system: read and write
         xmlParse = require('xslt-processor').xmlParse, //Allows to work with XML files
-        xlstProcess = require(xslt-processor),xlstProcess, //Allows to utilise XSL transformation
-        xml2js = require(xml2js)  //Does XML <> JSON
+        xlstProcess = require('xslt-processor').xlstProcess, //Allows to utilise XSL transformation
+        xml2js = require('xml2js')  //Does XML <> JSON
 
 const router = express();
 const server = http.createServer(router);
@@ -22,7 +22,7 @@ router.get('/', function (req, res){
     let result = xsltProcess(doc, stylesheet);
 
     res.end(result.toString());
-    
+
 });
 
 server.listen(proccess.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
